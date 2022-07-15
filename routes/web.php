@@ -1,6 +1,12 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\{
+    DashboardController,
+    UserController,
+    ProdukController,
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +20,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('backend.template.content');
+    return view('backend.admin.index');
 });
+
+// Dashboard
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
+// User
+Route::get('/user', [UserController::class, 'index'])->name('user.index');
+
+// Produk
+Route::get('/produk', [ProdukController::class, 'index'])->name('produk.index');
